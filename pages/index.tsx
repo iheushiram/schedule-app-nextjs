@@ -13,6 +13,7 @@ import {
   Group,
   PasswordInput,
   Alert,
+  Title,
 } from '@mantine/core'
 import { useForm, yupResolver } from '@mantine/form'
 import { Layout } from '../components/Layout'
@@ -62,6 +63,7 @@ const Home: NextPage = () => {
   }
   return (
     <Layout title="Auth">
+      <Title order={1}>Schedule App</Title>
       <ShieldCheckIcon className="h-16 w-16 text-blue-500" />
       {error && (
         <Alert
@@ -95,7 +97,7 @@ const Home: NextPage = () => {
           id="password"
           placeholder="password"
           label="password"
-          description="Must be min 5 chars"
+          description="5文字以上であること"
           {...form.getInputProps('password')}
         />
         <Group mt="xl" position="apart">
@@ -110,15 +112,15 @@ const Home: NextPage = () => {
             }}
           >
             {isRegister
-              ? 'Have an account? Login'
-              : "Don't have an account? Register"}
+              ? 'アカウントをお持ちの方はログイン画面へ'
+              : 'アカウントをお持ちでない方は登録画面へ'}
           </Anchor>
           <Button
             leftIcon={<IconDatabase size={14} />}
             color="cyan"
             type="submit"
           >
-            {isRegister ? 'Register' : 'Login'}
+            {isRegister ? '登録' : 'Login'}
           </Button>
         </Group>
       </form>
